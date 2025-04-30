@@ -10,12 +10,14 @@ import algoritmos_paralelos.ParallelMergeSort;
 import algoritmos_paralelos.ParallelQuickSort;
 import algoritmos_paralelos.ParallelBubbleSort;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
 public class SortingBenchmark {
 
-    private static final int[] SIZES = {1000, 10000, 50000, 100000};
+    //private static final int[] SIZES = {1000, 10000, 50000, 100000};
+    private static final int[] SIZES = {1000, 10000};
     private static final int SAMPLES = 5;
 
     public static void main(String[] args) {
@@ -37,6 +39,25 @@ public class SortingBenchmark {
             benchmark("MergeSort", baseArray, 
             SortingBenchmark::runMergeSortSerial, 
             SortingBenchmark::runMergeSortParallel);
+        }
+
+        gerarGraficos();
+        System.out.println("Benchmark concluído. Resultados salvos em resultados/");
+    }
+
+    private static void gerarGraficos(){
+        try {
+            ProcessBuilder pb = new ProcessBuilder("python", "./benchmark/graficos.py");
+            pb.inheritIO(); // Para mostrar logs no console Java
+            Process process = pb.start();
+            int exitCode = process.waitFor();
+            if (exitCode != 0) {
+                System.err.println("Erro ao executar o script Python. Código: " + exitCode);
+            } else {
+                System.out.println("Script Python executado com sucesso!");
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -75,6 +96,16 @@ public class SortingBenchmark {
         return array;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Wrappers para facilitar passagem de funções
     @FunctionalInterface
     interface RunnableSupplier {
