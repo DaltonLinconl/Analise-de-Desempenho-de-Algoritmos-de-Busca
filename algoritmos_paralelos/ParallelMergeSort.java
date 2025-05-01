@@ -7,12 +7,12 @@ import java.util.concurrent.RecursiveAction;
 public class ParallelMergeSort {
 
     public static void main(String[] args) {
-        int n = 1_000_000; // Tamanho do array
+        int n = 10000; // Tamanho do array
         int[] array = generateRandomArray(n);
 
         long startTime = System.currentTimeMillis();
 
-        mergeSort(array, 5); // Número de threads
+        mergeSort(array, 2); // Número de threads
 
         long endTime = System.currentTimeMillis();
         System.out.println("\nTempo de execução paralelo para " + n + " elementos: " + (endTime - startTime) + " ms");
