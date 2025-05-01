@@ -22,6 +22,7 @@ public class SortingBenchmark {
 
     public static void main(String[] args) {
         for (int size : SIZES) {
+            System.out.println("Iniciando benchmark para tamanho: " + size);
             int[] baseArray = generateRandomArray(size);
 
             benchmark("QuickSort", baseArray, 
