@@ -2,15 +2,14 @@ package benchmark;
 
 import java.io.FileWriter;
 import java.io.IOException;
-//import java.util.concurrent.TimeUnit;
 
 public class BenchmarkUtil {
 
     public static long measureExecutionTime(Runnable algorithm) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();       // alta precisão
         algorithm.run();
-        long end = System.currentTimeMillis();
-        return end - start; // Retorna tempo em ms
+        long end = System.nanoTime();
+        return (end - start) / 1_000_000;     // converte para milissegundos
     }
 
     public static void saveToCSV(String filename, String[] header, String[][] data) {

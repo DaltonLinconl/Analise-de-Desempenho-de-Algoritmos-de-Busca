@@ -16,8 +16,8 @@ import java.util.Random;
 
 public class SortingBenchmark {
 
-    //private static final int[] SIZES = {1000, 10000, 50000, 100000};
-    private static final int[] SIZES = {1000, 10000};
+    private static final int[] SIZES = {1000, 10000, 50000, 80000};
+    //private static final int[] SIZES = {100000};
     private static final int SAMPLES = 5;
 
     public static void main(String[] args) {
@@ -40,9 +40,9 @@ public class SortingBenchmark {
             SortingBenchmark::runMergeSortSerial, 
             SortingBenchmark::runMergeSortParallel);
         }
-
+        System.out.println("Benchmark concluído. Gerando gráficos...");
         gerarGraficos();
-        System.out.println("Benchmark concluído. Resultados salvos em resultados/");
+        System.out.println("Graficos concluídos.");
     }
 
     private static void gerarGraficos(){
