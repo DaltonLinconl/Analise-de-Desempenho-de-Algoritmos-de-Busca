@@ -1,88 +1,76 @@
-Este projeto implementa um benchmark para comparar o desempenho de algoritmos de ordenação em versões serial e paralela, utilizando diferentes tamanhos de array e números de threads.
+# 📊 Análise de Desempenho de Algoritmos de Ordenação em Java
 
-# Descrição
+##  👥 Autores
 
-O código testa quatro algoritmos de ordenação:
+- Dalton Linconl
+- Marcos Antonio Félix
 
-    Bubble Sort
+## 📌 Descrição
 
-    Insertion Sort
+Este projeto compara o desempenho de algoritmos de ordenação em versões **seriais e paralelas**, utilizando **Java**. Avaliamos como diferentes tamanhos de dados e número de **threads** influenciam o tempo de execução.
 
-    Merge Sort
+---
 
-    Quick Sort
+## 🧠 Algoritmos Implementados
 
-Cada algoritmo é executado em:
+- Bubble Sort  
+- Insertion Sort  
+- Merge Sort  
+- Quick Sort  
 
-    Versão serial (execução sequencial)
+Cada um com duas versões:  
+✔️ **Serial** (sequencial)  
+⚡ **Paralela** (usando `ForkJoinPool` com 2, 4 e 8 threads)
 
-    Versão paralela (usando ForkJoinPool com 2, 4 e 8 threads)
+---
 
-Os resultados são armazenados em arquivos CSV para análise posterior.
+## 🧪 Metodologia
 
-# Configuração
-Pré-requisitos
+- Execuções com diferentes tamanhos de entrada  
+- Variação no número de threads  
+- 5 amostras por execução  
+- Resultados salvos em `.csv`  
+- Geração de gráficos com base nos dados
 
-    Java 8+
+---
 
-    Maven (opcional, para gerenciamento de dependências)
+## 📁 Estrutura do Projeto
 
-# Estrutura do Projeto
-   
+algoritmos_paralelos/ → Implementações paralelas
 
-Análise de Desempenho de Algoritmos de Busca
-│
-├── algoritmos_paralelos/       # Implementações paralelas
-│   ├── ParallelBubbleSort.java
-│   ├── ParallelInsertionSort.java
-│   ├── ParallelMergeSort.java
-│   └── ParallelQuickSort.java
-│
-├── algoritmos_seriais/         # Implementações sequenciais
-│   ├── BubbleSort.java
-│   ├── InsertionSort.java
-│   ├── MergeSort.java
-│   └── QuickSort.java
-│
-├── benchmark/                  # Código do benchmark
-│   ├── BenchmarkUtil.java      # Utilitário para medição de tempo
-│   └── SortingBenchmark.java   # Classe principal
-│
-├── class_files/                # Pasta para arquivos compilados (opcional)
-└── resultados/                 # Resultados em CSV (gerados automaticamente)
+algoritmos_seriais/ → Implementações seriais
 
+benchmark/ → Execução dos testes
 
-# Métricas Analisadas
+resultados/ → Arquivos CSV com os tempos
 
-Para cada algoritmo, são medidos:
+resultados_graficos/ → Gráficos gerados
 
-    Tempo de execução (ms) em diferentes tamanhos de array:
+---
 
-        1.000 elementos
+## ⚙️ Requisitos
 
-        10.000 elementos
+- Java 8+  
+- (Opcional) Maven  
 
-        50.000 elementos
+---
 
-        100.000 elementos
+## 🚀 Como Executar
 
-    Número de threads (1 para serial, 2/4/8 para paralelo)
+1. Compile os arquivos Java:
+ javac -d bin src/**/*.java
 
-    Média de tempo após 5 execuções (SAMPLES = 5)
+2. Execute os testes:
 
 
-# Como Executar
+3. Verifique os resultados na pasta `/resultados/`
 
-    Clone o repositório:
-    
+---
 
-Compile e execute:
+## 📊 Visualização dos Resultados
 
-    
+Use os arquivos `.csv` para gerar gráficos no **Excel**, **Google Sheets** ou com bibliotecas Java como **JFreeChart**.
 
+---
 
-# Resultados:
-
-    Os arquivos CSV são gerados em resultados/.
-
-    Exemplo: resultados_QuickSort_10000.csv
+Feito com ☕ e 🔁 em Java.
